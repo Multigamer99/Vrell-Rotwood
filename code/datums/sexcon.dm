@@ -212,9 +212,6 @@
 	START_PROCESSING(SSsex, user.sexcon)
 	START_PROCESSING(SSsex, src)
 
-/mob/living/carbon/human
-	var/virginity = FALSE
-
 /mob/living/carbon/human/proc/on_virgin_loss()
 	virginity = FALSE
 	if(mind)

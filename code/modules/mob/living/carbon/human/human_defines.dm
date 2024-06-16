@@ -121,3 +121,11 @@
 	/datum/rmb_intent/weak)
 
 	rot_type = /datum/component/rot/corpse
+
+	var/virginity = FALSE
+
+	var/persona_power = 10
+	var/real_gender
+	var/real_voice_color
+	var/list/personas = list()
+	var/active_persona

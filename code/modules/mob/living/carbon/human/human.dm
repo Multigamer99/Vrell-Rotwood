@@ -72,6 +72,8 @@
 
 	. = ..()
 
+	update_persona()
+
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
@@ -1017,6 +1019,46 @@
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()
+
+/mob/living/carbon/human/proc/update_persona(var/target_persona = "")
+	if(!real_gender) //idk why but bad genders broke shit
+		real_gender = gender
+	if(isnull(target_persona))
+		name = real_name
+		gender = real_gender
+		voice_color = real_voice_color
+		return
+	if(!personas[target_persona])
+		name = personas[target_persona]["name"]
+		gender = personas[target_persona]["gender"]
+		voice_color = personas[target_persona]["voice"]
+
+/mob/living/carbon/human/proc/new_persona(new_name, new_gender, new_voice)
+	new_name = reject_bad_name(new_name)
+	if(!new_name)
+		return -1 // bad name
+	if(personas[new_name])
+		return -6 // name in use
+	if(!new_voice)
+		return -2 // no voice input
+	if(color_hex2num(new_voice) < 230)
+		return -3 // too dark voice
+	/* Vrell - dear god i am too stupid to understand why this doesn't work so i'm removing it as a feature. have the color you want, kek
+	var/r = hex2num(copytext(new_voice,2,4))
+	var/g = hex2num(copytext(new_voice,4,6))
+	var/b = hex2num(copytext(new_voice,6,0))
+	var/or = hex2num(copytext(real_voice_color,2,4))
+	var/og = hex2num(copytext(real_voice_color,4,6))
+	var/ob = hex2num(copytext(real_voice_color,6,0))
+	var/maximum_voice_delta = 40 //Vrell - Used for easily changing the tolerances in the future of needed
+	if(abs(r - or) > maximum_voice_delta || abs(g - og) > maximum_voice_delta || abs(b - ob) > maximum_voice_delta)
+		return -4 // too different voice
+	*/
+	new_voice = sanitize_hexcolor(new_voice)
+	if(new_gender != MALE && new_gender != FEMALE) //Vrell - sorry neopronoun gang, but since this has an impact on code shit, I gotta limit it for now.
+		return -5 // bad gender
+	personas[new_name] = list("name"=new_name, "gender"=new_gender, "voice"=new_voice)
+	return 0
 
 /mob/living/carbon/human/species
 	var/race = null

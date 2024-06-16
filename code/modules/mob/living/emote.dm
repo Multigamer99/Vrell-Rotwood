@@ -1250,6 +1250,65 @@
 /datum/emote/living/custom/replace_pronoun(mob/user, message)
 	return message
 
+/datum/emote/living/disguise
+	key = "disguise"
+	key_third_person = "disguises"
+	message = "prepares to take on a persona."
+	emote_type = EMOTE_VISIBLE
+
+/mob/living/carbon/human/verb/emote_disguise()
+	set name = "Disguise"
+	set category = "Emotes"
+
+	emote("disguise", intentional = TRUE)
+
+/datum/emote/living/disguise/run_emote(mob/user, params, type_override, intentional)
+	var/mob/living/carbon/human/human_user = user
+	var/prev_name = user.name
+	if(human_user && isliving(human_user))
+		var/list/index_options = list("Original Identity")
+		index_options += human_user.personas
+		index_options += "New Persona"
+		var/index = input("Which persona do you wish to take?") as null|anything in index_options
+		if(!index)
+			return
+		if(index == "Original Identity")
+			human_user.update_persona(null)
+			user.visible_message("[human_user] stops taking on a persona.")
+			return
+		if(index == "New Persona")
+			var/new_name = input(user, "What is this persona's name?") as text|null
+			var/new_gender = input(user, "What gender is this persona?") as null|anything in list(MALE, FEMALE)
+			var/new_voice = input(user, "What voice do they have?", null, human_user.real_voice_color) as color|null
+			var/errcode = human_user.new_persona(new_name, new_gender, new_voice)
+			switch(errcode)
+				if(-1)
+					to_chat(user, "<span class='danger'>That name is invalid!</span>")
+					return
+				if(-6)
+					to_chat(user, "<span class='danger'>That name is already used by one of my personas!</span>")
+					return
+				if(-2)
+					to_chat(user, "<span class='danger'>That voice is invalid!</span>")
+					return
+				if(-3)
+					to_chat(user, "<span class='danger'>That voice is too dark!</span>")
+					return
+				if(-4)
+					to_chat(user, "<span class='danger'>That voice is too far from my natural one!</span>")
+					return
+				if(-5)
+					//should never happen but safety check still
+					return
+				if(0)
+					human_user.update_persona(new_name)
+					user.visible_message("[prev_name] takes on the persona of [human_user].")
+			return
+		human_user.update_persona(index)
+		user.visible_message("[prev_name] takes on the persona of [human_user].")
+		
+		
+
 /datum/emote/living/help
 	key = "help"
 

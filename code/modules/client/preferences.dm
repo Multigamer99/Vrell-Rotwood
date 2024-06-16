@@ -1927,7 +1927,7 @@ Slots: [job.spawn_positions]</span>
 
 	character.age = age
 	character.dna.features = features.Copy()
-	character.gender = gender
+	character.real_gender = gender
 	character.set_species(chosen_species, icon_update = FALSE, pref_load = src)
 
 	if((randomise[RANDOM_NAME] || randomise[RANDOM_NAME_ANTAG] && antagonist) && !character_setup)
@@ -1947,12 +1947,14 @@ Slots: [job.spawn_positions]</span>
 		character.real_name = pref_species.random_name(gender)
 	else
 		character.real_name = real_name
-	character.name = character.real_name
+	character.real_name = character.real_name
 
 	character.domhand = domhand
 
 	character.eye_color = eye_color
-	character.voice_color = voice_color
+	character.real_voice_color = voice_color
+	character.update_persona(null)
+
 	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)
 	if(organ_eyes)
 		if(!initial(organ_eyes.eye_color))

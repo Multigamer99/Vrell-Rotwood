@@ -52,7 +52,7 @@
 		on_examine_face(user)
 		var/used_name = name
 		if(observer_privilege)
-			used_name = real_name
+			used_name += " ([real_name])"
 		if(job)
 			var/datum/job/J = SSjob.GetJob(job)
 			var/used_title = J.title
@@ -95,10 +95,10 @@
 			if(H.marriedto == real_name)
 				. += "<span class='love'>It's my spouse.</span>"
 
-		if(real_name in GLOB.excommunicated_players)
+		if(name in GLOB.excommunicated_players)
 			. += "<span class='userdanger'>HERETIC! SHAME!</span>"
 
-		if(real_name in GLOB.outlawed_players)
+		if(name in GLOB.outlawed_players)
 			. += "<span class='userdanger'>OUTLAW!</span>"
 		if(mind)
 			if(mind.special_role == "Bandit")
@@ -441,7 +441,13 @@
 				. += "<span class='warning'>[t_He] look[p_s()] weaker than I.</span>"
 			if(-INFINITY to -5)
 				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
-
+	if(ishuman(user))
+		var/mob/living/carbon/human/L = user
+		if(user != src)
+			if(L.name != L.real_name && STAPER - L.persona_power > 0)
+				. += "<span class='warning'><B>[t_He] can see through my persona!</B></span>"
+		if(L.STAPER > persona_power)
+			. += "<span class='warning'><B>[t_He] is putting on a false identity!</B></span>"
 	if(maniac)
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
