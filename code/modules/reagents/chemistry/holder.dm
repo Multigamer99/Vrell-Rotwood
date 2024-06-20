@@ -771,6 +771,15 @@
 
 	return 0
 
+/datum/reagents/proc/recolor_reagent(reagent, color)
+	var/list/cached_reagents = reagent_list
+	for(var/_reagent in cached_reagents)
+		var/datum/reagent/R = _reagent
+		if (R.type == reagent)
+			R.color = sanitize_hexcolor(color)
+			return 1
+	return 0
+
 /datum/reagents/proc/get_reagent_amount(reagent)
 	var/list/cached_reagents = reagent_list
 	for(var/_reagent in cached_reagents)

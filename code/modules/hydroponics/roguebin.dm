@@ -104,34 +104,50 @@
 			return
 		if(isliving(user))
 			var/mob/living/L = user
+			var/washing = TRUE
 			if(L.stat != CONSCIOUS)
 				return
 			var/removereg = /datum/reagent/water
+			var/obj/item/item2wash = user.get_active_held_item()
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, span_warning("No water to wash these stains."))
-					return
-			reagents.remove_reagent(removereg, 5)
+					washing = FALSE
+					if(!item2wash || reagents.total_volume < item2wash.dyeneeded)
+						to_chat(user, span_warning("No water to wash these stains."))
+						return
 			var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
 			playsound(user, pick_n_take(wash), 100, FALSE)
-			var/item2wash = user.get_active_held_item()
 			if(!item2wash)
 				user.visible_message(span_info("[user] starts to wash in [src]."))
 				if(do_after(L, 30, target = src))
+					reagents.remove_reagent(removereg, 5)
 					wash_atom(user, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			else
 				user.visible_message(span_info("[user] starts to wash [item2wash] in [src]."))
 				if(do_after(L, 30, target = src))
-					wash_atom(item2wash, CLEAN_STRONG)
-					playsound(user, pick(wash), 100, FALSE)
-			var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
-			if(water_to_dirty)
-				var/amount_to_dirty = water_to_dirty.volume
-				if(amount_to_dirty)
-					reagents.remove_reagent(/datum/reagent/water, amount_to_dirty)
-					reagents.add_reagent(/datum/reagent/water/gross, amount_to_dirty)
+					if(washing)
+						reagents.remove_reagent(removereg, 5)
+						wash_atom(item2wash, CLEAN_STRONG)
+						playsound(user, pick(wash), 100, FALSE)
+					if(!item2wash.strongdyed && item2wash.dyeneeded && reagents.total_volume >= item2wash.dyeneeded)
+						var/datum/reagents/colorings = reagents
+						colorings.del_reagent(/datum/reagent/water)
+						colorings.del_reagent(/datum/reagent/water/gross)
+						if(colorings.total_volume > 0)
+							item2wash.color = mix_color_from_reagents(reagents)
+							reagents.remove_all(item2wash.dyeneeded)
+						else if(item2wash.color != "#FFFFFF")
+							item2wash.color = "#FFFFFF"
+							reagents.remove_all(item2wash.dyeneeded)
+			if(washing)
+				var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
+				if(water_to_dirty)
+					var/amount_to_dirty = water_to_dirty.volume
+					if(amount_to_dirty)
+						reagents.remove_reagent(/datum/reagent/water, amount_to_dirty)
+						reagents.add_reagent(/datum/reagent/water/gross, amount_to_dirty)
 			return
 
 //We need to use this or the object will be put in storage instead of attacking it

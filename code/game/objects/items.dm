@@ -188,6 +188,10 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	//this should be true or false
 	var/sewrepair
 
+	//Vrell - Used for dying
+	var/dyeneeded = 0
+	var/strongdyed = FALSE
+
 	var/breakpath
 
 	var/walking_stick = FALSE

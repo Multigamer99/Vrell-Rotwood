@@ -23,6 +23,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	body_parts_covered = CHEST|ARMS|VITALS
+	dyeneeded = 2
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
 	name = "undervestments"
@@ -31,6 +32,7 @@
 	sleeved = null
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = HUMANLIKE_RACE_TYPES
+	dyeneeded = 2
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	color = CLOTHING_BLACK
@@ -47,6 +49,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 	color = CLOTHING_RED
+	dyeneeded = 0
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guard/Initialize()
 	..()
@@ -86,12 +89,15 @@
 	name = "formal silks"
 	icon_state = "puritan_shirt"
 	allowed_race = CLOTHED_RACES_TYPES
+	dyeneeded = 2
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
 	icon_state = "sailorblues"
+	dyeneeded = 0
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red
 	icon_state = "sailorreds"
+	dyeneeded = 0
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant
 	r_sleeve_status = SLEEVE_TORN
@@ -113,6 +119,7 @@
 	item_state = "shortshirt"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	dyeneeded = 2
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/random/Initialize()
 	color = pick("#6b5445", "#435436", "#704542", "#79763f")
@@ -141,6 +148,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	dyeneeded = 3
 
 /obj/item/clothing/suit/roguetown/shirt/tunic
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -154,6 +162,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	dyeneeded = 3
 
 /obj/item/clothing/suit/roguetown/shirt/tunic/green
 	color = CLOTHING_GREEN
@@ -187,6 +196,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	dyeneeded = 3
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -218,6 +228,7 @@
 	icon_state = "silkdress"
 	item_state = "silkdress"
 	color = "#e6e5e5"
+	dyeneeded = 3
 	
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/princess
 	color = CLOTHING_WHITE
@@ -252,6 +263,7 @@
 	sleevetype = null
 	sleeved = null
 	color = "#a90707"
+	dyeneeded = 2
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy/Initialize()
 	. = ..()
@@ -266,6 +278,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	body_parts_covered = CHEST|ARMS|VITALS
 	color = null
+	dyeneeded = 2
 
 /obj/item/clothing/suit/roguetown/shirt/jester
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR

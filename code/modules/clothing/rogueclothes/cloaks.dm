@@ -9,6 +9,7 @@
 	bloody_icon_state = "bodyblood"
 	sewrepair = TRUE //Vrell - AFAIK, all cloaks are cloth ATM. Technically semi-less future-proof, but it removes a line of code from every subtype, which is worth it IMO.
 	flags_inv = HIDETAIL
+	dyeneeded = 3
 
 
 //////////////////////////
@@ -28,6 +29,7 @@
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
 	var/picked
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/tabard/update_icon()
 	cut_overlays()
@@ -259,6 +261,7 @@
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
 	var/picked
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/stabard/attack_right(mob/user)
 	if(picked)
@@ -511,6 +514,7 @@
 	allowed_race = HUMANLIKE_RACE_TYPES
 	detail_tag = "_det"
 	detail_color = CLOTHING_PURPLE
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/lordcloak/update_icon()
 	cut_overlays()
@@ -568,6 +572,7 @@
 	boobed = TRUE
 	allowed_race = CLOTHED_RACES_TYPES
 	flags_inv = HIDECROTCH|HIDEBOOB
+	dyeneeded = 2
 
 /obj/item/clothing/cloak/apron/blacksmith
 	name = "leather apron"
@@ -578,6 +583,7 @@
 	body_parts_covered = CHEST|GROIN
 	armor = list("blunt" = 25, "slash" = 5, "stab" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 24, "acid" = 0)
 	boobed = TRUE
+	dyeneeded = 3
 
 /obj/item/clothing/cloak/apron/brown
 	color = CLOTHING_BROWN
@@ -637,6 +643,7 @@
 	inhand_mod = TRUE
 	hoodtype = /obj/item/clothing/head/hooded/rainhood
 	toggle_icon_state = FALSE
+	dyeneeded = 3
 
 /obj/item/clothing/wash_act(clean)
 	. = ..()
@@ -693,6 +700,7 @@
 	body_parts_covered = HEAD
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	block2add = FOV_BEHIND
+	dyeneeded = 2
 
 /obj/item/clothing/head/hooded/equipped(mob/user, slot)
 	. = ..()
@@ -737,6 +745,7 @@
 	nodismemsleeves = TRUE
 	inhand_mod = FALSE
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+	dyeneeded = 3
 
 /obj/item/clothing/cloak/cape/knight
 	color = CLOTHING_PURPLE
@@ -797,7 +806,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = HUMANLIKE_RACE_TYPES
 	nodismemsleeves = TRUE
-
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/stole
 	name = "stole"
@@ -807,6 +816,7 @@
 	sleevetype = null
 	body_parts_covered = null
 	flags_inv = null
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/stole/red
 	icon_state = "stole_red"
@@ -826,6 +836,7 @@
 	allowed_race = HUMANLIKE_RACE_TYPES
 	sellprice = 50
 	nodismemsleeves = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/heartfelt
 	name = "red cloak"
@@ -839,6 +850,7 @@
 	allowed_race = HUMANLIKE_RACE_TYPES
 	sellprice = 50
 	nodismemsleeves = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/half
 	name = "halfcloak"
@@ -859,6 +871,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	flags_inv = null
+	dyeneeded = 2
 
 /obj/item/clothing/cloak/half/brown
 	color = CLOTHING_BROWN
@@ -876,6 +889,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = HUMANLIKE_RACE_TYPES
 	inhand_mod = FALSE
+	dyeneeded = 0
 
 /obj/item/clothing/cloak/half/vet/Initialize()
 	..()
@@ -895,6 +909,7 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/helmet/heavy/blkknight
 	name = "blacksteel helmet"
@@ -937,6 +952,7 @@
 	sellprice = 666
 	static_price = TRUE
 	var/active_item
+	dyeneeded = 0
 
 /obj/item/clothing/neck/roguetown/blkknight/equipped(mob/living/user)
 	. = ..()

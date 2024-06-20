@@ -37,6 +37,7 @@
 	equip_sound = 'sound/blank.ogg'
 	heldz_items = 3
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/storage/belt/rogue/leather/dropped(mob/living/carbon/human/user)
 	..()
@@ -52,16 +53,19 @@
 	sellprice = 50
 	sewrepair = FALSE
 	anvilrepair = /datum/skill/craft/armorsmithing
+	dyeneeded = 0
 
 /obj/item/storage/belt/rogue/leather/shalal
 	name = "shalal belt"
 	icon_state = "shalal"
 	sellprice = 5
+	dyeneeded = 0
 
 /obj/item/storage/belt/rogue/leather/black
 	name = "black belt"
 	icon_state = "blackbelt"
 	sellprice = 10
+	dyeneeded = 0
 
 /obj/item/storage/belt/rogue/leather/plaquesilver
 	name = "plaque belt"
@@ -69,6 +73,7 @@
 	sellprice = 30
 	sewrepair = FALSE
 	anvilrepair = /datum/skill/craft/armorsmithing
+	dyeneeded = 0
 
 /obj/item/storage/belt/rogue/leather/hand
 	name = "steel belt"
@@ -76,6 +81,7 @@
 	sellprice = 30
 	sewrepair = FALSE
 	anvilrepair = /datum/skill/craft/armorsmithing
+	dyeneeded = 0
 
 /obj/item/storage/belt/rogue/leather/rope
 	name = "rope belt"
@@ -114,6 +120,7 @@
 	content_overlays = FALSE
 	bloody_icon_state = "bodyblood"
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/storage/belt/rogue/pouch/ComponentInitialize()
 	. = ..()
@@ -182,6 +189,7 @@
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
 	sewrepair = TRUE
+	dyeneeded = 2
 
 /obj/item/storage/backpack/rogue/satchel/heartfelt/PopulateContents()
 	new /obj/item/natural/feather(src)
@@ -219,6 +227,7 @@
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
 	sewrepair = TRUE
+	dyeneeded = 2
 
 /obj/item/storage/backpack/rogue/backpack/ComponentInitialize()
 	. = ..()

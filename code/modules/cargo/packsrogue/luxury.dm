@@ -16,6 +16,16 @@
 	cost = 5
 	contains = list(/obj/item/reagent_containers/powder/moondust)
 
+/datum/supply_pack/rogue/luxury/dyekit
+	name = "Dye Kit"
+	cost = 12
+	contains = list(/obj/item/reagent_containers/dyekit/loaded)
+
+/datum/supply_pack/rogue/luxury/dyebottle
+	name = "Dye Bottle"
+	cost = 8
+	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/dye)
+
 /datum/supply_pack/rogue/luxury/mbox
 	name = "Music Box"
 	cost = 500

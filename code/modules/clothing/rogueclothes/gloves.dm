@@ -22,6 +22,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/gloves/roguetown/leather/black
 	color = CLOTHING_BLACK
@@ -37,7 +38,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
-
+	dyeneeded = 1
 
 /obj/item/clothing/gloves/roguetown/angle
 	name = "heavy leather gloves"
@@ -53,6 +54,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	dyeneeded = 2
 
 /obj/item/clothing/gloves/roguetown/chain
 	name = "chain gauntlets"

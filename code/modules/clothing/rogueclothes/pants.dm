@@ -47,6 +47,7 @@
 	icon_state = "tights"
 	item_state = "tights"
 //	adjustable = CAN_CADJUST
+	dyeneeded = 2
 
 /obj/item/clothing/under/roguetown/tights/random/Initialize()
 	color = pick("#544236", "#435436", "#543836", "#79763f")
@@ -90,6 +91,7 @@
 	item_state = "webs"
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+	dyeneeded = 2
 
 /obj/item/clothing/under/roguetown/trou
 	name = "work trousers"
@@ -105,10 +107,12 @@
 	blade_dulling = DULLING_BASHCHOP
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	dyeneeded = 2
 
 /obj/item/clothing/under/roguetown/trou/leather
 	name = "leather trousers"
 	icon_state = "leathertrou"
+	dyeneeded = 2
 
 /obj/item/clothing/under/roguetown/trou/leather/mourning
 	name = "mourning trousers"
@@ -163,6 +167,7 @@
 //	adjustable = CAN_CADJUST
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+	dyeneeded = 1
 
 /obj/item/clothing/under/roguetown/loincloth/brown
 	color = CLOTHING_BROWN

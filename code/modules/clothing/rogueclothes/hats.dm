@@ -33,6 +33,7 @@
 	toggle_icon_state = TRUE
 	max_integrity = 100
 	sewrepair = TRUE
+	dyeneeded = 2
 
 /obj/item/clothing/head/roguetown/roguehood/shalal
 	name = "keffiyeh"
@@ -54,6 +55,7 @@
 	blocksound = SOFTHIT
 	max_integrity = 100
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/roguehood/astrata
 	name = "sun hood"
@@ -69,6 +71,7 @@
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	max_integrity = 100
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/roguehood/nochood
 	name = "moon hood"
@@ -85,6 +88,7 @@
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	max_integrity = 100
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/necrahood
 	name = "death shroud"
@@ -94,6 +98,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/dendormask
 	name = "briarmask"
@@ -103,6 +108,7 @@
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/necromhood
 	name = "necromancers hood"
@@ -113,6 +119,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/priestmask
 	name = "solar visage"
@@ -123,6 +130,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/priestmask/pickup(mob/living/user)
 	if((user.job != "Priest") && (user.job != "Priestess"))
@@ -176,9 +184,11 @@
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
 	//dropshrink = 0.75
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/menacing/bandit
 	icon_state = "bandithood"
+	dyeneeded = 2
 
 /obj/item/clothing/head/roguetown/jester
 	name = "jester's hat"
@@ -186,11 +196,13 @@
 	item_state = "jester"
 	dynamic_hair_suffix = "+generic"
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/strawhat
 	name = "straw hat"
 	icon_state = "strawhat"
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/puritan
 	name = "buckled hat"
@@ -207,6 +219,7 @@
 	name = "hat"
 	icon_state = "bardhat"
 	sewrepair = TRUE
+	dyeneeded = 0
 
 /obj/item/clothing/head/roguetown/fancyhat
 	name = "fancy hat"
@@ -218,6 +231,7 @@
 	name = "fur hat"
 	icon_state = "hatfur"
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/hatblu
 	name = "fur hat"
@@ -231,6 +245,7 @@
 	sewrepair = TRUE
 //	color = "#fbc588"
 	//dropshrink = 0.75
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/flathat
 	name = "flat hat"
@@ -241,11 +256,13 @@
 
 /obj/item/clothing/head/roguetown/chaperon
 	name = "chaperon hat"
-	icon_state = "chaperon"
-	item_state = "chaperon"
+	icon_state = "chap_alt"
+	item_state = "chap_alt"
 	flags_inv = HIDEEARS
 	sewrepair = TRUE
 	//dropshrink = 0.75
+	dyeneeded = 1
+	color = "#725843"
 
 /obj/item/clothing/head/roguetown/cookhat
 	name = "cook hat"
@@ -253,6 +270,7 @@
 	item_state = "chef"
 	flags_inv = HIDEEARS
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/chaperon/greyscale
 	name = "chaperon hat"
@@ -280,6 +298,7 @@
 	icon_state = "chef"
 	sewrepair = TRUE
 	//dropshrink = 0.75
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/armingcap
 	name = "cap"
@@ -288,12 +307,14 @@
 	flags_inv = HIDEEARS
 	sewrepair = TRUE
 	//dropshrink = 0.75
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/knitcap
 	name = "knit cap"
 	icon_state = "knitcap"
 	sewrepair = TRUE
 	//dropshrink = 0.75
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/armingcap/dwarf
 	color = "#cb3434"
@@ -305,6 +326,7 @@
 	sewrepair = TRUE
 	//dropshrink = 0.75
 	dynamic_hair_suffix = null
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/headband/red
 	color = CLOTHING_RED
@@ -397,6 +419,7 @@
 	max_integrity = 75
 	color = "#463C2B"
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/helmet
 	icon = 'icons/roguetown/clothing/head.dmi'
@@ -681,6 +704,7 @@
 
 /obj/item/clothing/head/roguetown/wizhat/gen
 	icon_state = "wizardhatgen"
+	dyeneeded = 1
 
 /obj/item/clothing/head/roguetown/wizhat/gen/wise
 	name = "wise hat"

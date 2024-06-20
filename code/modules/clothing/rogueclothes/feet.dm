@@ -42,6 +42,7 @@
 	icon_state = "shortboots"
 	item_state = "shortboots"
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/shoes/roguetown/ridingboots
 	name = "riding boots"
@@ -51,6 +52,7 @@
 	icon_state = "ridingboots"
 	item_state = "ridingboots"
 	sewrepair = TRUE
+	dyeneeded = 2
 
 ///obj/item/clothing/shoes/roguetown/ridingboots/Initialize()
 //	. = ..()
@@ -65,6 +67,7 @@
 	sewrepair = TRUE
 	resistance_flags = null
 	color = "#473a30"
+	dyeneeded = 1
 
 /obj/item/clothing/shoes/roguetown/simpleshoes/white
 	color = null
@@ -74,6 +77,7 @@
 	name = "shoes"
 	icon_state = "buckleshoes"
 	color = null
+	dyeneeded = 0
 
 /obj/item/clothing/shoes/roguetown/simpleshoes/lord
 	name = "shoes"
@@ -91,6 +95,7 @@
 	icon_state = "gladiator"
 	item_state = "gladiator"
 	sewrepair = TRUE
+	dyeneeded = 2
 
 /obj/item/clothing/shoes/roguetown/sandals
 	name = "sandals"
@@ -99,6 +104,7 @@
 	icon_state = "sandals"
 	item_state = "sandals"
 	sewrepair = TRUE
+	dyeneeded = 1
 
 /obj/item/clothing/shoes/roguetown/shalal
 	name = "babouche"
@@ -107,6 +113,7 @@
 	icon_state = "shalal"
 	item_state = "shalal"
 	sewrepair = TRUE
+	dyeneeded = 2
 
 /obj/item/clothing/shoes/roguetown/boots/armor
 	name = "plated boots"
@@ -130,6 +137,7 @@
 	item_state = "leatherboots"
 	sewrepair = TRUE
 	armor = list("blunt" = 30, "slash" = 10, "stab" = 20, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	dyeneeded = 2
 
 /obj/item/clothing/shoes/roguetown/jester
 	name = "funny shoes"
