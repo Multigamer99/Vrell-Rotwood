@@ -19,7 +19,7 @@
 /datum/supply_pack/rogue/luxury/dyekit
 	name = "Dye Kit"
 	cost = 12
-	contains = list(/obj/item/reagent_containers/dyekit/loaded)
+	contains = list(/obj/item/reagent_containers/glass/dyekit/loaded)
 
 /datum/supply_pack/rogue/luxury/dyebottle
 	name = "Dye Bottle"

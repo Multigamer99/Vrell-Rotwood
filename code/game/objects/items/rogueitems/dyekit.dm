@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(dyelist, list("Red"="#a32121",
 "Majenta"="#962e5c",
 "Grey"="#999999"))
 
-/obj/item/reagent_containers/dyekit
+/obj/item/reagent_containers/glass/dyekit
 	name = "dye kit"
 	icon_state = "dye_kit"
 	desc = "Bottles and a bowl for measuring out dyes to create colors accurately."
@@ -20,18 +20,14 @@ GLOBAL_LIST_INIT(dyelist, list("Red"="#a32121",
 	force = 5
 	throwforce = 10
 	obj_flags = CAN_BE_HIT
-	possible_item_intents = list(INTENT_GENERIC, /datum/intent/fill, INTENT_POUR, INTENT_SPLASH)
 	w_class = WEIGHT_CLASS_NORMAL
 
-	reagent_flags = REFILLABLE | AMOUNT_VISIBLE | DRAINABLE
-	amount_per_transfer_from_this = 6
-	possible_transfer_amounts = list(6)
 	volume = 12
 	fillsounds = list('sound/items/fillcup.ogg')
 
 	var/cur_color = "#ffffff"
 
-/obj/item/reagent_containers/dyekit/attack_self(mob/user)
+/obj/item/reagent_containers/glass/dyekit/attack_self(mob/user)
 	var/choice = input(user, "Choose a color", "Dye Kit") as anything in GLOB.dyelist
 	if(choice)
 		if(GLOB.dyelist[choice])
@@ -40,7 +36,7 @@ GLOBAL_LIST_INIT(dyelist, list("Red"="#a32121",
 				reagents.recolor_reagent(/datum/reagent/rogue_dye, cur_color)
 			
 	
-/obj/item/reagent_containers/dyekit/attack_obj(obj/O, mob/living/user)
+/obj/item/reagent_containers/glass/dyekit/attack_obj(obj/O, mob/living/user)
 	if(isitem(O))
 		var/obj/item/I = O
 		if(I.dyeneeded)
@@ -70,5 +66,5 @@ GLOBAL_LIST_INIT(dyelist, list("Red"="#a32121",
 /obj/item/reagent_containers/glass/bottle/rogue/dye
 	list_reagents = list(/datum/reagent/rogue_dye = 12)
 
-/obj/item/reagent_containers/dyekit/loaded
+/obj/item/reagent_containers/glass/dyekit/loaded
 	list_reagents = list(/datum/reagent/rogue_dye = 12)

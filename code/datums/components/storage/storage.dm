@@ -561,8 +561,8 @@
 			if(sewer.can_repair && this_item.sewrepair && this_item.max_integrity && !this_item.obj_broken && this_item.obj_integrity < this_item.max_integrity && M.mind.get_skill_level(/datum/skill/misc/sewing) >= this_item.required_repair_skill && this_item.ontable() && !being_repaired)
 				being_repaired = TRUE
 				return FALSE
-		if(istype(I, /obj/item/reagent_containers/dyekit))
-			var/obj/item/reagent_containers/dyekit/dyekit = I
+		if(istype(I, /obj/item/reagent_containers/glass/dyekit))
+			var/obj/item/reagent_containers/glass/dyekit/dyekit = I
 			var/obj/item/storage/this_item = parent
 			if(this_item.color != dyekit.cur_color && this_item.dyeneeded > 0 && dyekit.reagents.has_reagent(/datum/reagent/rogue_dye, this_item.dyeneeded) && !being_repaired)
 				being_repaired = TRUE

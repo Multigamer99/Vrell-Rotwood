@@ -132,9 +132,8 @@
 						wash_atom(item2wash, CLEAN_STRONG)
 						playsound(user, pick(wash), 100, FALSE)
 					if(!item2wash.strongdyed && item2wash.dyeneeded && reagents.total_volume >= item2wash.dyeneeded)
-						var/datum/reagents/colorings = reagents
-						colorings.del_reagent(/datum/reagent/water)
-						colorings.del_reagent(/datum/reagent/water/gross)
+						var/nonwatervolume = reagents.total_volume
+						nonwatervolume -= 
 						if(colorings.total_volume > 0)
 							item2wash.color = mix_color_from_reagents(reagents)
 							reagents.remove_all(item2wash.dyeneeded)
